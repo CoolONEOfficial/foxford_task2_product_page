@@ -48,10 +48,10 @@
             <v-layout row justify-center>
                 <a class="px-4 py-2" :key="item" style="color: white; font-size: 13px;"
                    v-for="item of ['Appliances', 'Tools', 'Mattresses', 'Clothing', 'Shoes', 'Baby', 'Jewelry', 'Fitness', 'Auto', 'Home', 'Electronics', 'Outdoor', 'Parts & Services', 'Toys' ]">
-                    {{ item }}
+                    <b>{{ item }}</b>
                 </a>
                 <a class="px-4 pt-2 pb-1 mb-2" :key="item" style="color: white; font-size: 13px; background: #002859;">
-                    More
+                    <b>More</b>
                 </a>
             </v-layout>
         </div>
@@ -59,9 +59,7 @@
 </template>
 
 <script>
-    export default {
-        name: "Header"
-    }
+    export default {}
 </script>
 
 <style scoped lang="scss">
@@ -94,7 +92,7 @@
 
     #bottomH {
         background: $secondary;
-        height: 2.5em;
+        height: 2.6em;
     }
 
     @mixin size($w, $h) {
