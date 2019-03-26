@@ -8,13 +8,15 @@
                 <v-flex xs5>
                     <v-layout column>
 
-                        <v-layout row pt-3>
-                            <a>sdf</a>
-                            <a>sdfsdf</a>
+                        <v-layout row>
+                            <a class="pr-3 py-2" :key="item" style="color: white; font-size: 10pt;"
+                               v-for="item of ['Deals', 'Coupons', 'Weekly Ad', 'Gift Ideas \u23F7', 'Credit Card \u23F7', 'Store Locator', 'Kmart.com', 'Help']">
+                                {{ item }}
+                            </a>
                         </v-layout>
 
                         <div class="password-wrapper">
-                            <input id="password-field" type="password" class="input" name="password">
+                            <input id="password-field" class="input">
                             <div class="icon-wrapper">
                                 <span class="ion ion-search field-icon toggle-password"></span>
                             </div>
@@ -23,6 +25,22 @@
                     </v-layout>
                 </v-flex>
                 <v-flex xs2>
+                    <v-layout column align-end>
+                        <a class="pr-3 py-2" :key="item" style="color: white; font-size: 10pt;">
+                            <b>FREE SHIPPING ON</b> $59+
+                        </a>
+                        <v-layout row>
+                            <a style="color: white; font-size: 10pt;">
+                                Sign in<br>
+                                <b>Account & Points &#9207;</b>
+                            </a>
+                            <a class="pl-3" style="color: white; font-size: 10pt;">
+                                Check Your<br>
+                                <b>Order Status</b>
+                            </a>
+                            <img src="../assets/cart.png" alt="" style="height: 20px;" class="ma-2 ml-3"/>
+                        </v-layout>
+                    </v-layout>
                 </v-flex>
             </v-layout>
         </div>
@@ -56,8 +74,6 @@
 
     #logo {
         font-family: 'Helvetica Neue Cyr Thin', sans-serif;
-        font-weight: 100;
-        font-style: normal;
         font-size: 45pt;
         color: white;
     }
@@ -70,10 +86,6 @@
     #bottomH {
         background: $secondary;
         height: 3em;
-    }
-
-    .bg-transparent {
-        background-color: transparent !important;
     }
 
     @mixin size($w, $h) {
@@ -89,14 +101,15 @@
     // styles
     body {
         background-color: $primary;
+
         .password-wrapper {
             width: 80%;
             border-radius: 5px;
             background-color: white;
             overflow: hidden;
+
             .input {
                 border: none;
-                font: small-caption;
                 @include font-size(1.4);
                 width: calc(100% - 50px);
                 color: $secondary;
@@ -104,6 +117,7 @@
                 line-height: 1.8;
                 padding-left: 15px;
             }
+
             .icon-wrapper {
                 position: relative;
                 display: inline;
@@ -112,18 +126,19 @@
                 background-color: $light;
                 transition: background-color 0.25s ease-out;
                 cursor: pointer;
+
                 .ion-search {
                     @include font-size(2.0);
                     position: absolute;
                     top: 4px;
                     right: 10px;
-                    color: #cccccc;
+                    color: white;
                     transition: color 0.25s ease-out;
                 }
+
                 &:hover {
                     transition: background-color 0.25s ease-in;
                     background-color: $secondary;
-
                 }
             }
         }
