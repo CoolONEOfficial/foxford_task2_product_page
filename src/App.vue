@@ -22,6 +22,7 @@
                 'primary': '#002859',
                 'secondary': '#003980',
                 'light': '#005ccc',
+                'red': '#d00',
             }
         }
     }

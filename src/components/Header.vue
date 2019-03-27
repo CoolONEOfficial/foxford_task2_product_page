@@ -27,16 +27,16 @@
                 <v-flex xs2>
                     <v-layout column align-end>
                         <a class="pr-3 py-2" :key="item" style="color: white; font-size: 10pt;">
-                            <b>FREE SHIPPING ON</b> $59+
+                            <strong>FREE SHIPPING ON</strong> $59+
                         </a>
                         <v-layout row>
                             <a style="color: white; font-size: 10pt;">
                                 Sign in<br>
-                                <b>Account & Points &#9207;</b>
+                                <strong>Account & Points &#9207;</strong>
                             </a>
                             <a class="pl-3" style="color: white; font-size: 10pt;">
                                 Check Your<br>
-                                <b>Order Status</b>
+                                <strong>Order Status</strong>
                             </a>
                             <img src="../assets/cart.png" alt="" style="height: 20px;" class="ma-2 ml-3"/>
                         </v-layout>
@@ -48,10 +48,10 @@
             <v-layout row justify-center>
                 <a class="px-4 py-2" :key="item" style="color: white; font-size: 13px;"
                    v-for="item of ['Appliances', 'Tools', 'Mattresses', 'Clothing', 'Shoes', 'Baby', 'Jewelry', 'Fitness', 'Auto', 'Home', 'Electronics', 'Outdoor', 'Parts & Services', 'Toys' ]">
-                    <b>{{ item }}</b>
+                    <strong>{{ item }}</strong>
                 </a>
                 <a class="px-4 pt-2 pb-1 mb-2" :key="item" style="color: white; font-size: 13px; background: #002859;">
-                    <b>More</b>
+                    <strong>More</strong>
                 </a>
             </v-layout>
         </div>
