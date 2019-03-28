@@ -5,9 +5,10 @@
                 <v-breadcrumbs class="pt-2 pb-1 pl-2"
                                :items="['Home', 'Appliances', 'Refrigerators', 'French Door Refrigerators'].map(value => ({text: value}))"></v-breadcrumbs>
                 <h1 id="title">Kenmore 72597 27.8 cu. ft. Smart 4-Door Refrigerator - Black Stainless Steel</h1>
-                <v-layout row class="py-2">
-                    <a class="pr-3" id="subtitle" :key="item"
-                       v-for="item of ['★★★★★', '5 reviews', 'Description', 'Specifications']">{{ item }}</a>
+                <v-layout justify-start row class="py-2">
+                    <rating class="pr-2" :stars="rating"></rating>
+                    <a class="pr-2 pt-1" id="subtitle" :key="item"
+                       v-for="item of ['5 reviews', 'Description', 'Specifications']">{{ item }}</a>
                 </v-layout>
                 <v-divider></v-divider>
                 <v-layout row>
@@ -219,7 +220,13 @@
                 </expandable>
                 <v-divider class="mb-4 mt-5"></v-divider>
                 <h2>Ratings & Reviews</h2><br>
-                ★★★★★
+                <v-layout row>
+                    <rating class="pr-2" :stars="rating"></rating>
+                    <div style="font-size: 11pt" class="pt-1">
+                        <strong>{{ rating }}.0 of 5 stars | </strong>
+                        <a>write your review</a>
+                    </div>
+                </v-layout>
             </v-flex>
 
             <v-flex shrink id="right-form" class="pt-5 mx-3">
@@ -294,15 +301,22 @@
 
 <script>
     import Expandable from "./Expandable";
+    import Rating from "./Rating";
 
     export default {
-        components: {Expandable},
+        components: {Rating, Expandable},
         data() {
             return {
                 'color': 'black',
                 'descriptionExpanded': false,
+                'rating': 5,
             }
         },
+        watch: {
+            color: function (val) {
+                this.rating = (val === 'white' ? 5 : 3);
+            },
+        }
     }
 </script>
 

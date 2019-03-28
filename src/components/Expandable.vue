@@ -5,8 +5,7 @@
             <div id="gd" :style="`background-image: ${expanded ? 'unset' : 'linear-gradient(to bottom, transparent, #fafafa 75%)'};`"></div>
         </div>
         <v-layout class="mt-4" row @click="expanded = !expanded">
-            <v-icon small color="#003980" class="pr-2">fas fa-chevron-{{expanded ? 'up' : 'down'}}
-            </v-icon>
+            <v-icon small color="#003980" class="pr-2">fas fa-chevron-{{expanded ? 'up' : 'down'}}</v-icon>
             <a>{{ expanded ? textClose : textOpen }}</a>
         </v-layout>
     </div>
