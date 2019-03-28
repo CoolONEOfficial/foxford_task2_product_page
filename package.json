@@ -18,6 +18,7 @@
     "vuetify": "^1.5.5"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.1",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
@@ -25,6 +26,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fibers": "^3.1.1",
+    "material-design-icons-iconfont": "^4.0.5",
     "sass": "^1.17.2",
     "sass-loader": "^7.1.0",
     "stylus": "^0.54.5",

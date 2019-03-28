@@ -11,20 +11,66 @@
                 </v-layout>
                 <v-divider></v-divider>
                 <v-layout row>
-                    <img src="image_w_1.jpg"
+                    <img :src="`image_${color.charAt(0)}_1.jpg`"
                          alt="" width="439px" height="439px">
                     <v-container fluid grid-list-sm xs4 style="height: 439px;" class="scroll-y">
                         <v-layout row wrap justify-center>
                             <v-flex v-for="i in 6" :key="i">
-                                <img :src="`image_w_${i + 1}.jpg`"
+                                <img :src="`image_${color.charAt(0)}_${i + 1}.jpg`"
                                      width="204px" height="204px" alt="">
                             </v-flex>
                         </v-layout>
                     </v-container>
                 </v-layout>
-                <v-divider style="margin-top: 30px" class="mb-3"></v-divider>
+                <v-divider style="margin-top: 30px;" class="mb-3"></v-divider>
                 <a id="select">Color: Select</a>
                 <v-layout row>
+                    <v-card :style="'padding: 2px; margin: 3px; background: ' + (color === item ? '#002859' : 'white') + ';'"
+                            v-for="item in ['white', 'black']" :key="item">
+                        <img @click="color = item" class="pa-0 ma-0" :src="`color_${item}.jpg`" alt="" width="36px"
+                             height="36px">
+                    </v-card>
+                </v-layout>
+                <v-divider style="margin-top: 30px;"></v-divider>
+                <v-layout row>
+                    <img v-for="icon in Array(3).keys()" :key="icon" :src="`share_icon_${icon + 1}.png`" alt=""
+                         class="ma-2" width="16px" height="16px">
+
+                    <img src="icon_like.png" alt=""
+                         class="ma-2 ml-4" width="14px" height="14px">
+                    <a style="color: grey;" class="pt-1">Like It</a>
+
+                    <img src="icon_want.png" alt=""
+                         class="ma-2 ml-4" width="14px" height="14px">
+                    <a style="color: grey;" class="pt-1">Share It</a>
+
+                    <img src="icon_have.png" alt=""
+                         class="ma-2 ml-4" width="14px" height="14px">
+                    <a style="color: grey;" class="pt-1">Have It</a>
+                    <v-spacer></v-spacer>
+                    <v-icon color="#003980" class="pr-2">far fa-heart</v-icon>
+                    <a class="pt-1 pr-2">add to list</a>
+                    <a class="pt-1 pr-3">add to registry &#9207;</a>
+                </v-layout>
+                <v-divider class="mb-3"></v-divider>
+                <v-layout row>
+                    <h2 id="description">Description</h2>
+                    <span id="item-description" class="pl-4"
+                          style="font-size: 14pt">Item # 04672595000 Model # 72595</span>
+                </v-layout>
+                <v-layout row class="pt-2">
+                    <v-layout column>
+                        <span style="font-size: 12pt;">
+                        &bull; 27.8 cu. ft. Capacity<br>
+                        &bull; CleanFlow Air Filter
+                        </span>
+                    </v-layout>
+                    <v-layout column>
+                        <span style="font-size: 12pt;">
+                        &bull; Kenmore Smart<br>
+                        &bull; In-Door Ice & Water Dispenser
+                        </span>
+                    </v-layout>
                 </v-layout>
             </v-flex>
 
@@ -78,8 +124,9 @@
                             <v-card class="my-3 ml-3"><span class="px-3" style="font-size: 18pt;">-</span></v-card>
                             <v-card class="my-3 pt-1"><span class="px-4" style="font-size: 14pt;">1</span></v-card>
                             <v-card class="my-3 mr-3"><span class="px-3" style="font-size: 18pt;">+</span></v-card>
-                            <v-card class="my-3 mr-3 pt-1" color="red"><span class="px-3"
-                                                                             style="color: white; font-size: 14pt;">Add to Cart</span>
+                            <v-card class="my-3 mr-3 pt-1" color="red">
+                                <span class="px-3"
+                                      style="color: white; font-size: 14pt;">Add to Cart</span>
                             </v-card>
                         </v-layout>
                     </v-layout>
@@ -96,7 +143,13 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        data() {
+            return {
+                'color': 'black'
+            }
+        }
+    }
 </script>
 
 <style scoped lang="scss">
@@ -133,6 +186,17 @@
         font-weight: 600;
         color: $red;
         font-size: 26pt;
+    }
+
+    #description {
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+    }
+
+    #item-description {
+        font-family: "Open Sans Light", sans-serif;
+        font-weight: 600;
+        font-size: 11pt;
     }
 
     .text-red {
