@@ -127,7 +127,8 @@
                     </div>
                     <v-layout v-for="(rating, index) in [1, 1, 3, 2, 1]" :key="index" row>
                         <strong class="mr-1">{{ 5 - index}}</strong>stars
-                        <div :style="`height: 5px; width: ${46 * rating}px; background: blue;`" class="ml-3 mt-2"></div>
+                        <div :style="`height: 5px; width: ${46 * rating}px; background: #003980;`"
+                             class="ml-3 mt-2"></div>
                         <div :style="`height: 5px; width: ${46 * (5 - rating)}px; background: #f2f2f2;`"
                              class="mt-2"></div>
                         <a class="ml-3">{{ rating }} reviews</a>
@@ -139,26 +140,89 @@
                     <v-layout row class="ml-3 mt-2 mb-5">
                         <v-flex xs6 class="my-3">
                             <h3>Praise</h3>
-                            <review v-bind="reviews
+                            <review short=true v-bind="reviews
                             .filter((review) => review.positive)
                             .sort((a, b) => a.helpful - b.helpful)[0]"></review>
                         </v-flex>
                         <v-divider class="mx-4" vertical></v-divider>
                         <v-flex xs6 class="my-3">
                             <h3>Criticism</h3>
-                            <review v-bind="reviews
+                            <review short=true v-bind="reviews
                             .filter((review) => !review.positive)
                             .sort((a, b) => a.helpful - b.helpful)[0]"></review>
                         </v-flex>
                     </v-layout>
                 </div>
                 <v-divider></v-divider>
-                <v-layout row align-center>
-                    <strong>Sort by:</strong>
-                    <v-select box :items="['sdf']">
+                <v-layout row class="px-3" align-center style="background: #EEE;">
+                    <h3 class="pr-3">Sort by:</h3>
+                    <v-select :items="[
+                        'Top Rated',
+                        'Newest',
+                        'Oldest',
+                        'Most Helpful',
+                        'Low Rated',
+                        'Verified Purchase',
+                    ]">
                     </v-select>
                 </v-layout>
-                <v-divider class="mb-3"></v-divider>
+                <div v-for="review in reviews" :key="review">
+                    <v-divider class="mb-3"></v-divider>
+                    <review class="mb-3 mx-3" v-bind="review"></review>
+                </div>
+                <v-divider></v-divider>
+                <v-layout row class="px-3" align-center style="background: #EEE;">
+                    <h3 class="pr-3">Sort by:</h3>
+                    <v-select :items="[
+                        'Top Rated',
+                        'Newest',
+                        'Oldest',
+                        'Most Helpful',
+                        'Low Rated',
+                        'Verified Purchase',
+                    ]">
+                    </v-select>
+                </v-layout>
+                <v-divider></v-divider>
+                <v-layout row class="my-4">
+                    <img style="margin-left: 250px;" src="image_kenmore.jpg" alt="">
+                    <v-layout class="ml-5" column>
+                        <a v-for="item in [
+                            'Kenmore French Door Refrigerators',
+                            'Kenmore French Door Refrigerators',
+                            'All Kenmore',
+                        ]" :key="item">{{ item }}</a>
+                    </v-layout>
+                </v-layout>
+                <v-divider></v-divider>
+                <h2 class="mt-4 mb-3">Regular Price Offer</h2>
+                <span>Choose the price you want to pay:</span>
+                <v-layout class="my-3" align-start row v-for="item in [
+                    [
+                        '$1799.99',
+                        'Save $2160.00 today',
+                        'Pay this price & save on today\'s order',
+                    ],
+                    [
+                        '$3959.99',
+                        '& receive a gift card',
+                        'Pay this price & receive a Sears gift card for 10% more than you will save with the price above. Not valid with discounts or coupons.',
+                    ],
+                ]" :key="item">
+                    <v-radio class="mr-2 mt-1"></v-radio>
+                    <div>
+                        <span class="mr-3" style="font-size: 16pt;">{{ item[0] }}</span>
+                        <strong>{{ item[1] }}</strong><br>
+                        <span style="font-size: 12pt;">{{ item[2] }}</span>
+                    </div>
+                </v-layout>
+                <div style="padding-left: 40px;">
+                    <strong>How it works:</strong><br>
+                    <span class="mr-1">Select this option & place your order. After your order is placed, email your salescheck #, first & last name, & telephone number to:</span>
+                    <a>saveonall@customerservice.sears.com</a><br>
+                    <span class="mb-3">Please allow up to 30 days for processing.</span>
+                </div>
+                <v-divider class="my-4"></v-divider>
             </v-flex>
 
             <v-flex shrink id="right-form" class="pt-5 mx-3">
@@ -498,8 +562,8 @@
 
     .v-text-field--box .v-input__slot,
     .v-text-field--outline .v-input__slot {
-        min-height: auto!important;
-        display: flex!important;
-        align-items: center!important;
+        min-height: auto !important;
+        display: flex !important;
+        align-items: center !important;
     }
 </style>

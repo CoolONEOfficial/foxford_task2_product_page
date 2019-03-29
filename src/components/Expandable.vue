@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div id="box" :style="`${expanded ? 'min-height' : 'height'}: ${expanded ? 'auto' : height}; overflow: hidden;`">
+        <div id="box" :style="`${expanded ? 'min-height' : 'max-height'}: ${expanded ? 'auto' : height}; overflow: hidden;`">
             <slot></slot>
-            <div id="gd" :style="`background-image: ${expanded ? 'unset' : 'linear-gradient(to bottom, transparent, #fafafa)'};`"></div>
+            <div id="gd" :style="`background-image: ${expanded ? 'unset' : 'linear-gradient(to bottom, transparent 70% , #fafafa )'};`"></div>
         </div>
         <v-layout class="mt-1" row @click="expanded = !expanded">
             <v-icon small color="#003980" class="pr-2">fas fa-chevron-{{expanded ? 'up' : 'down'}}</v-icon>
