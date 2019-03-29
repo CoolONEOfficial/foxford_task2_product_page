@@ -220,13 +220,40 @@
                 </expandable>
                 <v-divider class="mb-4 mt-5"></v-divider>
                 <h2>Ratings & Reviews</h2><br>
-                <v-layout row>
+                <v-layout row class="mb-3">
                     <rating class="pr-2" :stars="rating"></rating>
                     <div style="font-size: 11pt" class="pt-1">
                         <strong>{{ rating }}.0 of 5 stars | </strong>
                         <a>write your review</a>
                     </div>
                 </v-layout>
+                <div class="pl-3">
+                    <i style="font-size: 12pt; color: grey;">25% of customers would recommend this product</i><br>
+                    <div style="font-size: 12pt;" class="my-3">
+                        <strong>Rating Breakdown </strong>
+                        <small style="color: grey;">(8 Reviews)</small>
+                    </div>
+                    <v-layout v-for="(rating, index) in [1, 1, 3, 2, 1]" :key="index" row>
+                        <strong class="mr-1">{{ 5 - index}}</strong>stars
+                        <div :style="`height: 5px; width: ${46 * rating}px; background: blue;`" class="ml-3 mt-2"></div>
+                        <div :style="`height: 5px; width: ${46 * (5 - rating)}px; background: #f2f2f2;`"
+                             class="mt-2"></div>
+                        <a class="ml-3">{{ rating }} reviews</a>
+                    </v-layout>
+                </div>
+                <v-divider class="mb-4 mt-3"></v-divider>
+                <div class="ml-4 mb-2 mt-5">
+                    <h3>Most Helpful Reviews</h3>
+                    <v-layout row class="ml-3 mt-2">
+                        <v-flex xs6 class="mt-3">
+                            <h3>Praise</h3>
+                        </v-flex>
+                        <v-divider class="mr-4" vertical></v-divider>
+                        <v-flex xs6 class="mt-3">
+                            <h3>Criticism</h3>
+                        </v-flex>
+                    </v-layout>
+                </div>
             </v-flex>
 
             <v-flex shrink id="right-form" class="pt-5 mx-3">
